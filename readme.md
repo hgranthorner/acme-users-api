@@ -1,0 +1,1 @@
+Just open the index.html file in the "dist" folder and you're good to go.
