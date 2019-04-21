@@ -2,21 +2,22 @@ const path = require('path')
 
 module.exports = {
   mode: 'development',
-  entry: path.resolve(__dirname, 'client', 'src', 'index.js'),
+  entry: path.resolve(__dirname, 'src', 'index.tsx'),
+  devtool: 'inline-source-map',
   output: {
-    path: path.resolve(__dirname, 'client', 'dist'),
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'main.js'
+  },
+  resolve: {
+    extensions: ['.tsx', '.js', '.jsx', '.json', '.ts']
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
-          }
+          loader: 'ts-loader'
         }
       }
     ]
